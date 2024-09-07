@@ -17,6 +17,12 @@
         <Profile>VMware</Profile>
         <Description>Use VMware Player or Workstation to deploy and debug.</Description>
         <PxeInterface>192.168.0.8</PxeInterface>
+        <CompressionType>Gzip</CompressionType>
+        <CompileVBEMultiboot>False</CompileVBEMultiboot>
+        <RemoveBootDebugOutput>True</RemoveBootDebugOutput>
+        <Timeout>5</Timeout>
+        <DebugEnabled>False</DebugEnabled>
+        <VMWareEdition>Player</VMWareEdition>
     </PropertyGroup>
 
     <ItemGroup>

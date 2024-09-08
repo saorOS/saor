@@ -1,13 +1,8 @@
 ﻿using Cosmos.HAL.Drivers.Audio;
-using Cosmos.System.Audio.IO;
 using Cosmos.System.Audio;
+using Cosmos.System.Audio.IO;
 using saor.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
 
 namespace saor.Processing.System
 {
@@ -21,7 +16,7 @@ namespace saor.Processing.System
             {
                 Enable();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(Events.Error("audio", "Audio not initialized: " + ex.Message));
                 Console.WriteLine(Events.Warning("audio", "Audio disabled."));

@@ -1,12 +1,8 @@
-﻿using Cosmos.HAL.Drivers.Audio;
-using Cosmos.System;
-using Cosmos.System.Audio;
-using Cosmos.System.Audio.IO;
+﻿using Cosmos.System;
 using Cosmos.System.Graphics;
 using Cosmos.System.Graphics.Fonts;
 using saor.Processing.System;
 using System;
-using System.Threading;
 using Console = System.Console;
 
 namespace saor.Core
@@ -26,7 +22,7 @@ namespace saor.Core
                 Console.Clear();
                 Console.WriteLine(Events.Success("vga", "VGA Font initialized!"));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(Events.FatalError("vga", "Fatal error while setting the VGA Font: " + ex.Message));
                 Console.WriteLine("Press any key to shutdown.");

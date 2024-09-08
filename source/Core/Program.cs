@@ -5,6 +5,7 @@ using Cosmos.System.Audio.IO;
 using Cosmos.System.Graphics;
 using Cosmos.System.Graphics.Fonts;
 using System;
+using System.Threading;
 using Console = System.Console;
 
 namespace saor.Core
@@ -14,11 +15,7 @@ namespace saor.Core
     /// </summary>
     public class Program : Kernel
     {
-        public static AudioMixer audioMixer;
-        public static AC97 audioDriver;
-        public static AudioManager audioManager;
         public static bool audioEnabled;
-        private static AudioStream bootAudio;
 
         protected override void BeforeRun()
         {
@@ -39,18 +36,20 @@ namespace saor.Core
             try
             {
                 Console.WriteLine(Events.Neutral("audio", "Initializing audio..."));
-                bootAudio = MemoryAudioStream.FromWave(Resources.bootAudio);
-                audioMixer = new();
-                audioDriver = AC97.Initialize(bufferSize: 4096);
-                audioMixer.Streams.Add(bootAudio);
-                audioManager = new()
+                var mixer = new AudioMixer();
+                var audioStream = MemoryAudioStream.FromWave(Resources.bootAudio);
+                var driver = AC97.Initialize(bufferSize: 8000);
+                mixer.Streams.Add(audioStream);
+
+                var audioManager = new AudioManager()
                 {
-                    Stream = audioMixer,
-                    Output = audioDriver
+                    Stream = mixer,
+                    Output = driver
                 };
                 audioManager.Enable();
-                audioEnabled = true;
                 Console.WriteLine(Events.Success("audio", "Audio initialized and boot sound played."));
+                Thread.Sleep(3000);
+                audioManager.Disable();
             }
             catch (Exception ex)
             {

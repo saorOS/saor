@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Console = System.Console;
 
 namespace saór.Core
@@ -74,7 +70,7 @@ namespace saór.Core
         public static string Error(string name, string message)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            return name + ": " + message; 
+            return name + ": " + message;
         }
     }
 }

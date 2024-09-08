@@ -1,7 +1,7 @@
 ﻿using System;
 using Console = System.Console;
 
-namespace saór.Core
+namespace saor.Core
 {
     public static class Events
     {

@@ -13,11 +13,24 @@
         <StartCosmosGDB>False</StartCosmosGDB>
         <VisualStudioDebugPort>Pipe: Cosmos\Serial</VisualStudioDebugPort>
         <CosmosDebugPort>Serial: COM1</CosmosDebugPort>
-        <Launch>VMware</Launch>
+        <Launch>ISO</Launch>
         <Profile>VMware</Profile>
         <Description>Use VMware Player or Workstation to deploy and debug.</Description>
         <PxeInterface>192.168.0.8</PxeInterface>
+        <CompressionType>Gzip</CompressionType>
+        <CompileVBEMultiboot>False</CompileVBEMultiboot>
+        <RemoveBootDebugOutput>True</RemoveBootDebugOutput>
+        <Timeout>5</Timeout>
+        <DebugEnabled>False</DebugEnabled>
     </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\bootAudio.wav" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Resources\bootAudio.wav" />
+    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Cosmos.Build" Version="0-*" NoWarn="NU1604" />

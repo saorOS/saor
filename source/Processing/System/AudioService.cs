@@ -19,6 +19,7 @@ namespace saor.Processing.System
         {
             try
             {
+                Enable();
             }
             catch(Exception ex)
             {
@@ -50,6 +51,7 @@ namespace saor.Processing.System
         }
         public void Disable()
         {
+            Console.WriteLine(Events.Warning("audio", "Audio disabled."));
             audioDriver.Disable();
             running = false;
         }

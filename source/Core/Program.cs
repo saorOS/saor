@@ -20,6 +20,7 @@ namespace saór.Core
             Console.Clear();
             Events.Success("vga", "VGA Font initialized!");
 
+
         }
         protected override void Run()
         {

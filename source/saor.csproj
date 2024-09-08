@@ -26,4 +26,8 @@
         <PackageReference Include="Cosmos.Plugs" Version="0-*" NoWarn="NU1604" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Processing\System\" />
+    </ItemGroup>
+
 </Project>

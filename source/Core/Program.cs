@@ -8,11 +8,11 @@ using Console = System.Console;
 namespace saor.Core
 {
     /// <summary>
-    /// saór entry point. Most objects here are public and static for a direct access from other classes.
+    /// saór entry point. Most objects (except voids) here are public and static for a direct access from other classes.
     /// </summary>
     public class Program : Kernel
     {
-        AudioService audioService;
+        public static AudioService audioService;
         protected override void BeforeRun()
         {
             Console.WriteLine(Events.Neutral("vga", "Initializing VGA Font..."));
@@ -30,6 +30,7 @@ namespace saor.Core
                 Power.Shutdown();
             }
             audioService = new();
+
         }
         protected override void Run()
         {

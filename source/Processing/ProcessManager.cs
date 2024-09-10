@@ -12,7 +12,7 @@ namespace saor.Processing
         }
         public void RegisterProcess(Process process)
         {
-            this.ProcessList.Add(process);
+            ProcessList.Add(process);
         }
         public void Update()
         {

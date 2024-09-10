@@ -13,6 +13,7 @@ namespace saor.Core
     public class Program : Kernel
     {
         public static AudioService audioService;
+        public static NetworkService networkService;
         protected override void BeforeRun()
         {
             Console.WriteLine(Events.Neutral("vga", "Initializing VGA Font..."));
@@ -30,7 +31,7 @@ namespace saor.Core
                 Power.Shutdown();
             }
             audioService = new();
-
+            networkService = new();
         }
         protected override void Run()
         {

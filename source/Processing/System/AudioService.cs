@@ -10,7 +10,7 @@ namespace saor.Processing.System
     {
         public AudioMixer audioMixer;
         public AC97 audioDriver;
-        public AudioService() : base("audio", "Audio service, used to play sounds in the system.")
+        public AudioService(bool running = true) : base("audio", "Audio service, used to play sounds in the system.", running)
         {
             try
             {
@@ -18,8 +18,8 @@ namespace saor.Processing.System
             }
             catch (Exception ex)
             {
-                Console.WriteLine(Events.Error("audio", "Audio not initialized: " + ex.Message));
-                Console.WriteLine(Events.Warning("audio", "Audio disabled."));
+                Console.WriteLine(Events.Error(name, "Audio not initialized: " + ex.Message));
+                Console.WriteLine(Events.Warning(name, "Audio disabled."));
                 running = false;
             }
         }
@@ -29,7 +29,7 @@ namespace saor.Processing.System
         }
         public void Enable()
         {
-            Console.WriteLine(Events.Neutral("audio", "Initializing audio..."));
+            Console.WriteLine(Events.Neutral(name, "Initializing audio..."));
             audioMixer = new AudioMixer();
             var audioStream = MemoryAudioStream.FromWave(Resources.bootAudio);
             audioDriver = AC97.Initialize(bufferSize: 4096);
@@ -41,12 +41,12 @@ namespace saor.Processing.System
                 Output = audioDriver
             };
             audioManager.Enable();
-            Console.WriteLine(Events.Success("audio", "Audio initialized and boot sound played."));
+            Console.WriteLine(Events.Success(name, "Audio initialized and boot sound played."));
             running = true;
         }
         public void Disable()
         {
-            Console.WriteLine(Events.Warning("audio", "Audio disabled."));
+            Console.WriteLine(Events.Warning(name, "Audio disabled."));
             audioDriver.Disable();
             running = false;
         }

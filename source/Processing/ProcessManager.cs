@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace saor.Processing
 {
@@ -20,9 +16,9 @@ namespace saor.Processing
         }
         public void Update()
         {
-            if(running)
+            if (running)
             {
-                foreach(Process process in ProcessList)
+                foreach (Process process in ProcessList)
                 {
                     process.Update();
                 }

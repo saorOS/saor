@@ -12,6 +12,7 @@ namespace saor.Core
     /// </summary>
     public class Program : Kernel
     {
+
         public static AudioService audioService;
         public static NetworkService networkService;
         protected override void BeforeRun()
